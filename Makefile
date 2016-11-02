@@ -9,6 +9,7 @@ all: main test
 clean:
 	rm -rf $(BUILDDIR)
 	rm -rf $(DISTDIR)
+	rm -f *.stackdump
 
 makedirs:
 	mkdir -p $(BUILDDIR)
