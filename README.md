@@ -10,7 +10,7 @@ with the following setup:
 - [x] Main source file representing the console application
 - [x] Test source file representing unit tests
 - [x] Makefile to compile individual parts or all
-- [ ] Included library setup linked during compilation
+- [x] Included library setup linked during compilation (glib2)
 - [ ] Configure script to check environment
 - [ ] Documentation
 - [x] Support for linux and cygwin-like environments

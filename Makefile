@@ -2,7 +2,8 @@ NAME = libbasti
 BUILDDIR = ./build
 DISTDIR = ./bin
 CFLAGS = -O2 -Wall -Wextra
-LIBS =
+CFLAGS_GLIB2 = $(CFLAGS) $(shell pkg-config --cflags glib-2.0)
+LIBS = -lglib-2.0
 
 all: main test
 
@@ -18,13 +19,13 @@ makedirs:
 rebuild: clean all
 
 compile-lib: makedirs
-	$(CC) $(CFLAGS) -c $(NAME).c -o $(BUILDDIR)/$(NAME).o
+	$(CC) $(CFLAGS_GLIB2) -c $(NAME).c -o $(BUILDDIR)/$(NAME).o
 
 compile-test: makedirs
-	$(CC) $(CFLAGS) -c test.c -o $(BUILDDIR)/test.o
+	$(CC) $(CFLAGS_GLIB2) -c test.c -o $(BUILDDIR)/test.o
 
 compile-main: makedirs
-	$(CC) $(CFLAGS) -c main.c -o $(BUILDDIR)/main.o
+	$(CC) $(CFLAGS_GLIB2) -c main.c -o $(BUILDDIR)/main.o
 
 test: compile-lib compile-test
 	$(CC) $(CFLAGS) $(LIBS) -o $(DISTDIR)/$(NAME)-test \
